@@ -14,5 +14,18 @@ def is_prime(x):
         return False                 
    
  
-print (is_prime(17))
+
+
+def memoize(f):
+    #uses memo to store the function results
+    memo = {}
+    def helper(x):
+        if x not in memo:
+            memo[x]=f(x)
+        return memo[x]
+    return helper  
+# quetion 3.c 
+# memoize the is_prime function 
+is_prime= memoize(is_prime)
+print (is_prime(18))
 
